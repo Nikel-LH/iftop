@@ -4,6 +4,9 @@
  *
  */
 
+
+
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,7 +29,12 @@ char* unit_disp[][UNIT_DIVISIONS] = {
   [OPTION_BW_BYTES] = { "B", "KB", "MB", "GB"},
   [OPTION_BW_PKTS]  = { "p", "Kp", "Mp", "GB"},
 };
+sorted_list_type screen_list;
+host_pair_line totals;
+int peaksent, peakrecv, peaktotal;
 
+hash_type* screen_hash;
+hash_type* service_hash;
 extern hash_type* history;
 extern int history_pos;
 extern int history_len;
@@ -392,3 +400,4 @@ void sprint_host_raw(char *line, int af, struct in6_addr* addr, unsigned int por
       sprintf(line, "[%s]:%d", hostname, port);
     }
 }
+
